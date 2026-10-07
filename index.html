@@ -1,317 +1,255 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Tyron Fajardo Portfolio</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyron Fajardo | Actor Portfolio</title>
     <style>
-
-    html { scroll-behavior: smooth; }
-
-        body 
-        {
-        font-family: Arial, sans-serif;
-        background: url("much bigger.jpg") no-repeat center center fixed;
-        background-size: 210%;
-        background-position: center 30%;
-        color: white;
-        margin: 0;
+        html { 
+            scroll-behavior: smooth; 
         }
 
-body::before
-{
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #111111; /* Deep cinematic dark background */
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
 
-    background: linear-gradient(
-        to right,
-        rgba(0,0,0,0.2) 0%,     /* left = lighter */
-        rgba(0,0,0,0.9) 35%,    /* fade into dark */
-        rgba(0,0,0,1) 50%,    /* center = darkest */
-        rgba(0,0,0,0.9) 60%,    /* fade out */
-        rgba(0,0,0,0.2) 100%    /* right = lighter */
-    );
+        /* Centered Profile Card Overlay */
+        .main-container { 
+            width: 90%;
+            max-width: 800px;          
+            margin: 60px auto;         
+            padding: 40px;         
+            background: rgba(25, 25, 25, 0.95); 
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            border-top: 4px solid #d4af37; /* Elegant subtle gold accent */
+        }
 
-    z-index: -2;
-}
-
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    backdrop-filter: blur(65px);
-
-    mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(0,0,0,0.3) 30%,
-        rgba(0,0,0,1) 50%,
-        rgba(0,0,0,0.3) 70%,
-        transparent 100%
-    );
-
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(0,0,0,0.3) 30%,
-        rgba(0,0,0,1) 50%,
-        rgba(0,0,0,0.3) 70%,
-        transparent 100%
-    );
-
-    pointer-events: none;
-    z-index: -1; 
-}
-
-.main-container 
-{ 
-
-    width: 30%;                 /* controls width */
-    max-width: 1100px;          /* max size */
-    
-    margin: 120px auto;         /* vertical position */
-    padding: 25px 60px;         /* inside spacing */
-
-    background: rgba(0, 0, 0, 0.4); /* transparency */
-    backdrop-filter: blur(15px);    /* blur strength */
-
-    border-radius: 12px;
-    border: 1px solid rgba(0,255,204,0.2);
-
-    text-align: center;
-}
-
-.main-container {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(0,255,200,0.2);
-   
-}
-
+        /* Header Style */
         header {
-          background: linear-gradient(90deg, #1f1f1f, #121212);
-          padding: 60px 20px;
             text-align: center;
+            margin-bottom: 40px;
         }
 
-        h1 {
-            color: #00ffcc;
-            margin-bottom: 5px;
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
+            color: #ffffff;
         }
 
-        section {
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: auto;
-            text-align: center;
+        header p {
+            font-size: 1.1rem;
+            color: #a0a0a0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin: 0;
         }
 
+        /* Profile & Stats Layout */
+        .profile-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .headshot-placeholder {
+            width: 250px;
+            height: 320px;
+            background: #222222;
+            border: 2px solid #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666666;
+            font-style: italic;
+            border-radius: 4px;
+        }
+
+        .stats-table {
+            flex: 1;
+            min-width: 250px;
+            border-collapse: collapse;
+        }
+
+        .stats-table td {
+            padding: 10px 0;
+            border-bottom: 1px solid #222222;
+        }
+
+        .stats-table td.label {
+            font-weight: bold;
+            color: #d4af37;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            width: 40%;
+        }
+
+        /* Resume Sections */
         h2 {
-            color: #00ffcc;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #333333;
+            padding-bottom: 5px;
+            color: #ffffff;
+            margin-top: 40px;
         }
 
-        ul {
-            list-style-type: square;
+        .resume-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            margin-top: 10px;
         }
 
-        a {
-            color: #00ffcc;
+        .resume-table th, .resume-table td {
+            padding: 12px 10px;
         }
 
-            .card {
-    background-color: #1f1f1f;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-    box-shadow : 0 0 10px rgba(0, 255, 204, 0.1);
-}
-.card {
-    transition: 0.3s;
-}
+        .resume-table th {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+            text-transform: uppercase;
+            border-bottom: 1px solid #333333;
+        }
 
-.card:hover {
-    transform: scale(1.03);
-}
-nav {
-    background: rgba(0, 0, 0, 0.4);   
-    backdrop-filter: blur(10px);      
-    -webkit-backdrop-filter: blur(10px);
-    padding: 12px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+        .resume-table td {
+            color: #e0e0e0;
+            font-size: 0.95rem;
+        }
 
-nav a {
-    color: #00ffcc;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
+        .resume-table tr:max-of-type {
+            border-bottom: none;
+        }
 
-nav a:hover {
-    text-decoration: underline;
-}
+        /* Contact Details */
+        .contact-info {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.95rem;
+            color: #a0a0a0;
+        }
 
-.btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 25px;
-    background-color: #00ffcc;
-    color: black;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: 0.3s;
-}
+        .contact-info a {
+            color: #d4af37;
+            text-decoration: none;
+        }
 
-.btn:hover {
-    background-color: #00ccaa;
-    transform: scale(1.05);
-}
-
-.highlight-gif {
-    display: block;       
-    margin: 20px auto;    
-
-    width: 80%;
-    max-width: 700px;
-
-    border-radius: 10px;
-    border: 1px solid rgba(0,255,204,0.2);
-    box-shadow: 0 0 20px rgba(0,255,204,0.2);
-}
-
-#documents {
-    text-align: center;
-    margin-top: 40px;
-}
-
-#documents p {
-    margin-bottom: 15px;
-}
-
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
     </style>
-
 </head>
-
 <body>
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-    <a href="#highlight">Highlight</a>
-    <a href="#documents">Documents</a>
-    <a href="#education">Education</a>
-</nav>
+    <div class="main-container">
+        <header>
+            <h1>Tyron Fajardo</h1>
+            <p>Actor</p>
+        </header>
+        
+        <!-- Profile / Vitals Section -->
+        <div class="profile-section">
+            <!-- Replace the background or content here with an actual headshot image later -->
+            <div class="headshot-placeholder">
+                [ Insert Headshot Image Here ]
+            </div>
+            
+            <table class="stats-table">
+                <tr>
+                    <td class="label">Height</td>
+                    <td>5'10" (example)</td>
+                </tr>
+                <tr>
+                    <td class="label">Weight</td>
+                    <td>160 lbs (example)</td>
+                </tr>
+                <tr>
+                    <td class="label">Hair Color</td>
+                    <td>Black</td>
+                </tr>
+                <tr>
+                    <td class="label">Eye Color</td>
+                    <td>Brown</td>
+                </tr>
+                <tr>
+                    <td class="label">Location</td>
+                    <td>Milton, ON</td>
+                </tr>
+            </table>
+        </div>
 
-<div class="main-container">
+        <!-- Theater Credits (Great place to add local/community or school showcase work) -->
+        <h2>Theatre</h2>
+        <table class="resume-table">
+            <thead>
+                <tr>
+                    <th>Production / Show</th>
+                    <th>Role</th>
+                    <th>Director / Company</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>The Crucible (Example)</td>
+                    <td>John Proctor</td>
+                    <td>Milton Players Theatre Group</td>
+                </tr>
+                <!-- Future credits can be added as <tr> rows here -->
+            </tbody>
+        </table>
 
-<header>
-    <h1>Tyron Fajardo</h1>
-    <a href="#projects" class="btn">View My Work</a>
-    <p>Game Development Student | Aspiring UI Designer</p>
-    <p>Aspiring UI Designer focused on creating intuitive and engaging player experiences</p>
-</header>
+        <!-- Training Section (Crucial for fresh actor resumes) -->
+        <h2>Training & Education</h2>
+        <table class="resume-table">
+            <thead>
+                <tr>
+                    <th>Class / Workshop</th>
+                    <th>Focus</th>
+                    <th>Instructor / Institution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Acting for Beginners</td>
+                    <td>Scene Study & Monologues</td>
+                    <td>Local Acting Studio</td>
+                </tr>
+            </tbody>
+        </table>
 
-</div>
+        <!-- Special Skills Section -->
+        <h2>Special Skills</h2>
+        <table class="resume-table">
+            <tbody>
+                <tr>
+                    <td><strong>Languages:</strong> English</td>
+                </tr>
+                <tr>
+                    <td><strong>Sports/Physical:</strong> Running, Swimming, Stage Combat (Basic)</td>
+                </tr>
+                <tr>
+                    <td><strong>Other:</strong> Gaming, Computer Programming, Dialects (General Canadian/American)</td>
+                </tr>
+            </tbody>
+        </table>
 
-<section id = "about">
-    <h2>About Me</h2>
-<p>
-I’m a game development student with a strong interest in gameplay systems and UI design. 
-I enjoy solving problems through code while also focusing on how players interact with what I create. 
-My goal is to design intuitive systems that feel natural and engaging to the player.
-</p>
-    <p>
-    Outside of development, I enjoy exploring games and understanding how their systems and interfaces work.
-    </p>
-</section>
-
-<section id = "projects">
-    <h2>Projects</h2>
-
-<div class="card">
-    <h3>Unity AI Project</h3>
-    <p>Developed a movement and pathfinding system using Dijkstra’s algorithm.</p>
-</div>
-
-<div class="card">
-    <h3>C++ RPG System</h3>
-    <p>Created a combat system using object-oriented programming principles.</p>
-</div>
-
-<div class="card">
-    <h3>Tilemap Project</h3>
-    <p>Designed structured environments using tile-based systems to support gameplay readability.</p>
-</div>
-</section>
-
-<section id = "skills">
-    <h2>Skills</h2>
-    <p>Unity, Unreal Engine, C#, C++, UI Design</p>
-    <p>Image would be here but I dont have one yet(Zombie game)</p>
-    <img src="yourimage.png" width="100%">
-</section>
-
-<section id="education">
-    <h2>Education & Certifications</h2>
-
-    <div class="card">
-        <h3>Game Development Program</h3>
-        <p>George Brown College</p>
+        <!-- Contact Footer -->
+        <div class="contact-info">
+            <p>Contact: <a href="mailto:your.email@example.com">your.email@example.com</a> | Phone: (555) 123-4567</p>
+        </div>
     </div>
-
-    <div class="card">
-        <h3>High School Diploma</h3>
-        <p>Bishop Reding Catholic Secondary School graduated 2024</p>
-    </div>
-
-</section>
-
-<section id="highlight">
-    <h2>Proud Moment</h2>
-
-    <p>
-        This is a project I created during high school that I am proud of. 
-        It represents my early interest in game development and design.
-    </p>
-
-    <img src="Fajardo_BlueGreenMusic.gif" class="highlight-gif">
-
-<section id = "contact">
-    <h2>Contact</h2>
-    <p>Email: tyronjf44@gmail.com</p>
-    <a href="https://github.com/OWLGOD25" target="_blank">GitHub</a>
-</section>
-
-</section>
 
 </body>
-
 </html>
-
-<section id="documents">
-    <h2>Application Documents</h2>
-
-    <p>
-        This includes my resume, cover letter, and the job posting used for this project.
-    </p>
-
-    <a href="(Job Posting_Resume_CoverLetter).pdf" class="btn" download>
-        Download Documents (PDF)
-    </a>
-</section>
-
-<footer>
-    <p>© 2026 Tyron Fajardo</p>
-</footer>
